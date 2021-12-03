@@ -23,10 +23,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'mysql:mysql-connector-java:8.0.25'
+	implementation 'mysql:mysql-connector-java'
+
+	//This dependency provides the BCryptPasswordEncoder class, which we will use to create and
+	// verify hashes. While our class needs one of these encoder objects, it does not need to
+	// be an instance variable. We’ll make it static so it can be shared by all User objects.
+	implementation 'org.springframework.security:spring-security-crypto'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.jetbrains:annotations:22.0.0'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
